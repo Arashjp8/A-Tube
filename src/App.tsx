@@ -8,7 +8,7 @@ import Navbar from "./components/Navbar";
 function App() {
   return (
     <BrowserRouter>
-      <div className="bg-[#000]">
+      <div className="bg-primary font-poppins">
         <Navbar />
         <Routes>
           <Route path="/" element={<Feed />} />
