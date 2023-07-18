@@ -1,5 +1,11 @@
+import SideBar from "./SideBar";
+
 const Feed = () => {
-  return <div>feed</div>;
+  return (
+    <div>
+      <SideBar />
+    </div>
+  );
 };
 
 export default Feed;
