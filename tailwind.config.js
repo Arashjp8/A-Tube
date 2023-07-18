@@ -9,6 +9,7 @@ export default {
         secondary: "#FC1503",
         mainWhite: "#F8F8F8",
         mainGray: "#757575",
+        buttonGray: "#30343D",
       },
       fontFamily: {
         poppins: ["Poppins", "sans-serif"],

@@ -1,10 +1,18 @@
 import { demoProfilePicture, logo } from "../utils/constans";
-import { AiOutlineBell, AiOutlineSearch } from "react-icons/ai";
+import { AiOutlineBell, AiOutlineMenu, AiOutlineSearch } from "react-icons/ai";
 
 const Navbar = () => {
+  const buttonStyle =
+    "hover:bg-buttonGray rounded-full px-2 text-center text-mainWhite text-[22px] h-[32px]";
+
   return (
     <div className="flex flex-1 flex-row justify-between items-center p-5 cursor-pointer">
-      <img src={logo} alt="logo" className="w-[36px] h-[36px]" />
+      <div className="flex flex-row justify-between items-center w-[90px]">
+        <button className={buttonStyle}>
+          <AiOutlineMenu />
+        </button>
+        <img src={logo} alt="logo" className="w-[36px] h-[36px]" />
+      </div>
       <form
         id="search-form"
         className="border-none rounded-3xl bg-mainWhite w-[60%] min-w-[120px] h-[36px] mx-5 md:flex hidden flex-row justify-between items-center overflow-hidden"
@@ -18,11 +26,11 @@ const Navbar = () => {
           <AiOutlineSearch />
         </button>
       </form>
-      <div className="flex flex-row justify-between md:w-[40px] w-[120px] border-none">
-        <button className="md:hidden block text-[22px] h-[32px] text-mainWhite">
+      <div className="flex flex-row justify-between md:w-[40px] w-[140px] border-none">
+        <button className={`${buttonStyle} md:hidden block`}>
           <AiOutlineSearch />
         </button>
-        <button className="md:hidden block text-[22px] h-[32px] text-mainWhite">
+        <button className={`${buttonStyle} md:hidden block`}>
           <AiOutlineBell />
         </button>
         <img
