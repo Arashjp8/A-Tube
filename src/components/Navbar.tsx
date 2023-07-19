@@ -1,11 +1,15 @@
+import { Link } from "react-router-dom";
 import { demoProfilePicture, logo } from "../utils/constans";
 import { AiOutlineBell, AiOutlineMenu, AiOutlineSearch } from "react-icons/ai";
+import SearchBar from "./SearchBar";
 
 interface Props {
   handleToggle: () => void;
+  searchedPhrase: string;
+  setSearchedPhrase: (value: string) => void;
 }
 
-const Navbar = ({ handleToggle }: Props) => {
+const Navbar = ({ handleToggle, searchedPhrase, setSearchedPhrase }: Props) => {
   const buttonStyle =
     "hover:bg-buttonGray rounded-full px-2 text-center text-mainWhite text-[22px] h-[32px]";
 
@@ -15,21 +19,14 @@ const Navbar = ({ handleToggle }: Props) => {
         <button className={buttonStyle} onClick={handleToggle}>
           <AiOutlineMenu />
         </button>
-        <img src={logo} alt="logo" className="w-[36px] h-[36px]" />
+        <Link to={"/"}>
+          <img src={logo} alt="logo" className="w-[36px] h-[36px]" />
+        </Link>
       </div>
-      <form
-        id="search-form"
-        className="border-none rounded-3xl bg-mainWhite w-[60%] min-w-[120px] h-[36px] mx-5 md:flex hidden flex-row justify-between items-center overflow-hidden"
-      >
-        <input
-          type="text"
-          placeholder="Search..."
-          className="bg-mainWhite w-[95%] h-[32px] rounded-l-3xl p-5"
-        />
-        <button className="hover:opacity-60 text-[20px] transition duration-150 ease-in-out bg-mainWhite text-primary h-[32px] rounded-r-3xl px-4 text-center border-l-2 border-l-mainGray">
-          <AiOutlineSearch />
-        </button>
-      </form>
+      <SearchBar
+        searchedPhrase={searchedPhrase}
+        setSearchedPhrase={setSearchedPhrase}
+      />
       <div className="flex flex-row justify-between md:w-[40px] w-[140px] border-none">
         <button className={`${buttonStyle} md:hidden block`}>
           <AiOutlineSearch />

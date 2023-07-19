@@ -1,30 +1,40 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Feed from "./components/Feed";
-import VideoDetail from "./components/VideoDetail";
-import ChannelDetail from "./components/ChannelDetail";
-import SearchFeed from "./components/SearchFeed";
+import Feed from "./pages/Feed";
+import VideoDetail from "./pages/VideoDetail";
+import ChannelDetail from "./pages/ChannelDetail";
+import SearchFeed from "./pages/SearchFeed";
 import Navbar from "./components/Navbar";
 import SideBar from "./components/SideBar";
 import { useState } from "react";
 
 function App() {
-  const [toggle, setToggle] = useState<boolean>(true);
+  const [toggle, setToggle] = useState<boolean>(false);
   const handleToggle = () => setToggle((prev: boolean): boolean => !prev);
+
+  const [searchedPhrase, setSearchedPhrase] = useState("");
 
   return (
     <BrowserRouter>
       <div className="bg-primary font-poppins">
         <div className="sticky top-0 z-[5] bg-primary">
-          <Navbar handleToggle={handleToggle} />
+          <Navbar
+            handleToggle={handleToggle}
+            searchedPhrase={searchedPhrase}
+            setSearchedPhrase={setSearchedPhrase}
+          />
         </div>
         <div className="relative">
-          {/* {toggle && <SideBar toggle={toggle} />} */}
           <SideBar toggle={toggle} />
           <Routes>
             <Route path="/" element={<Feed toggle={toggle} />} />
             <Route path="/video/:id" element={<VideoDetail />} />
             <Route path="/channel/:id" element={<ChannelDetail />} />
-            <Route path="/search/:searchTerm" element={<SearchFeed />} />
+            <Route
+              path="/search/:searchTerm"
+              element={
+                <SearchFeed toggle={toggle} searchedPhrase={searchedPhrase} />
+              }
+            />
           </Routes>
         </div>
       </div>
