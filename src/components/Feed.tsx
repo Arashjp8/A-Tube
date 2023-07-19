@@ -1,8 +1,18 @@
 import VideoCard from "./VideoCard";
 
-const Feed = () => {
+interface Props {
+  toggle: boolean;
+}
+
+const Feed = ({ toggle }: Props) => {
   return (
-    <div className="relative xxs:left-[32px] xs:left-[32px] ss:left-[64px] ssm:left-[150px] left-[150px] lg:left-[250px] w-[85%] text-mainWhite grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-4 px-10 overflow-hidden">
+    <div
+      className={` ${
+        toggle
+          ? "relative left-[0px] lg:left-[250px] z-[0] w-full lg:w-[85%]"
+          : "relative w-full"
+      } bg-primary text-mainWhite grid xl:grid-cols-4 lg:grid-cols-3 ss:grid-cols-2 grid-cols-1 gap-4 px-10 xl:mr-20 mr-0 overflow-hidden`}
+    >
       <VideoCard />
       <VideoCard />
       <VideoCard />
