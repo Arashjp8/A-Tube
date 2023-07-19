@@ -13,12 +13,12 @@ const SearchBar = ({ searchedPhrase, setSearchedPhrase }: Props) => {
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
 
-    if (userSearchInput.current) {
-      setSearchedPhrase(userSearchInput.current.value);
+    if (userSearchInput.current && searchedPhrase.length !== 0) {
       navigate(`/search/${searchedPhrase}`);
       setSearchedPhrase("");
     }
   };
+
   return (
     <form
       id="search-form"
@@ -29,6 +29,8 @@ const SearchBar = ({ searchedPhrase, setSearchedPhrase }: Props) => {
         type="text"
         placeholder="Search..."
         className="bg-mainWhite w-[95%] h-[32px] rounded-l-3xl p-5"
+        value={searchedPhrase}
+        onChange={(e) => setSearchedPhrase(e.target.value)}
         ref={userSearchInput}
       />
       <button

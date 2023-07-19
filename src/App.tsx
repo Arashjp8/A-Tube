@@ -31,9 +31,7 @@ function App() {
             <Route path="/channel/:id" element={<ChannelDetail />} />
             <Route
               path="/search/:searchTerm"
-              element={
-                <SearchFeed toggle={toggle} searchedPhrase={searchedPhrase} />
-              }
+              element={<SearchFeed toggle={toggle} />}
             />
           </Routes>
         </div>

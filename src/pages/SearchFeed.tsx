@@ -1,15 +1,16 @@
+import { divStyle, noToggleDivStyle, toggleDivStyle } from "./Feed";
+
 interface Props {
   toggle: boolean;
-  searchedPhrase: string;
 }
 
-const SearchFeed = ({ toggle, searchedPhrase }: Props) => {
+const SearchFeed = ({ toggle }: Props) => {
   return (
-    <div className="bg-primary">
-      <h1>
-        Results for <span>{searchedPhrase}</span>
-      </h1>
-    </div>
+    <div
+      className={`${
+        toggle ? `${toggleDivStyle}` : `${noToggleDivStyle}`
+      } ${divStyle}`}
+    ></div>
   );
 };
 
