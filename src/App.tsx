@@ -8,7 +8,7 @@ import SideBar from "./components/SideBar";
 import { useState } from "react";
 
 function App() {
-  const [toggle, setToggle] = useState<boolean>(false);
+  const [toggle, setToggle] = useState<boolean>(true);
   const handleToggle = () => setToggle((prev: boolean): boolean => !prev);
 
   return (
@@ -18,7 +18,8 @@ function App() {
           <Navbar handleToggle={handleToggle} />
         </div>
         <div className="relative">
-          {toggle && <SideBar toggle={toggle} />}
+          {/* {toggle && <SideBar toggle={toggle} />} */}
+          <SideBar toggle={toggle} />
           <Routes>
             <Route path="/" element={<Feed toggle={toggle} />} />
             <Route path="/video/:id" element={<VideoDetail />} />

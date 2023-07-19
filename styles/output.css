@@ -568,6 +568,22 @@ video {
   left: 0px;
 }
 
+.left-\[50px\]{
+  left: 50px;
+}
+
+.left-\[100px\]{
+  left: 100px;
+}
+
+.left-\[5\%\]{
+  left: 5%;
+}
+
+.left-\[0\]{
+  left: 0;
+}
+
 .z-\[5\]{
   z-index: 5;
 }
@@ -605,8 +621,36 @@ video {
   margin-right: 0.75rem;
 }
 
+.mb-10{
+  margin-bottom: 2.5rem;
+}
+
+.mb-0{
+  margin-bottom: 0px;
+}
+
+.mb-1{
+  margin-bottom: 0.25rem;
+}
+
+.mb-0\.5{
+  margin-bottom: 0.125rem;
+}
+
+.mb-5{
+  margin-bottom: 1.25rem;
+}
+
 .block{
   display: block;
+}
+
+.inline-block{
+  display: inline-block;
+}
+
+.inline{
+  display: inline;
 }
 
 .flex{
@@ -639,6 +683,14 @@ video {
 
 .h-\[40px\]{
   height: 40px;
+}
+
+.h-\[60px\]{
+  height: 60px;
+}
+
+.h-\[50px\]{
+  height: 50px;
 }
 
 .w-\[100px\]{
@@ -689,6 +741,22 @@ video {
   width: 100%;
 }
 
+.w-\[5\%\]{
+  width: 5%;
+}
+
+.w-\[50px\]{
+  width: 50px;
+}
+
+.w-\[60px\]{
+  width: 60px;
+}
+
+.w-\[55px\]{
+  width: 55px;
+}
+
 .min-w-\[120px\]{
   min-width: 120px;
 }
@@ -699,6 +767,22 @@ video {
 
 .min-w-\[240px\]{
   min-width: 240px;
+}
+
+.min-w-\[50px\]{
+  min-width: 50px;
+}
+
+.min-w-\[55px\]{
+  min-width: 55px;
+}
+
+.min-w-\[100px\]{
+  min-width: 100px;
+}
+
+.min-w-\[95px\]{
+  min-width: 95px;
 }
 
 .max-w-\[315px\]{
@@ -842,6 +926,16 @@ video {
   padding-bottom: 0.75rem;
 }
 
+.px-6{
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.py-4{
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
 .text-center{
   text-align: center;
 }
@@ -862,6 +956,10 @@ video {
   font-size: 22px;
 }
 
+.text-\[10px\]{
+  font-size: 10px;
+}
+
 .font-light{
   font-weight: 300;
 }
@@ -879,6 +977,14 @@ video {
 .text-primary{
   --tw-text-opacity: 1;
   color: rgb(15 15 15 / var(--tw-text-opacity));
+}
+
+.opacity-50{
+  opacity: 0.5;
+}
+
+.opacity-100{
+  opacity: 1;
 }
 
 .transition{
@@ -985,11 +1091,23 @@ video {
   .md\:w-full{
     width: 100%;
   }
+
+  .md\:opacity-50{
+    opacity: 0.5;
+  }
+
+  .md\:opacity-100{
+    opacity: 1;
+  }
 }
 
 @media (min-width: 1300px){
   .lg\:left-\[250px\]{
     left: 250px;
+  }
+
+  .lg\:left-\[5\%\]{
+    left: 5%;
   }
 
   .lg\:block{
@@ -1004,8 +1122,16 @@ video {
     width: 85%;
   }
 
+  .lg\:w-\[95\%\]{
+    width: 95%;
+  }
+
   .lg\:grid-cols-3{
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .lg\:opacity-100{
+    opacity: 1;
   }
 }
 
