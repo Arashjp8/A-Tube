@@ -29,7 +29,10 @@ function App() {
           <SideBar toggle={toggle} />
           <Routes>
             <Route path="/" element={<Feed toggle={toggle} />} />
-            <Route path="/video/:id" element={<VideoDetail />} />
+            <Route
+              path="/video/:id"
+              element={<VideoDetail toggle={toggle} />}
+            />
             <Route path="/channel/:id" element={<ChannelDetail />} />
             <Route
               path="/search/:searchTerm"

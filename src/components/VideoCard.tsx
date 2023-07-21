@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import {
   demoChannelTitle,
   demoProfilePicture,
@@ -6,8 +7,13 @@ import {
 } from "../utils/constans";
 
 const VideoCard = () => {
+  const navigate = useNavigate();
+
   return (
-    <div className="cursor-pointer min-w-[240px] h-[340px] py-2 flex flex-col items-center">
+    <div
+      className="cursor-pointer min-w-[240px] h-[340px] py-2 flex flex-col items-center"
+      onClick={() => navigate(`/video/1`)} // TODO: make it dynamic
+    >
       <img
         src={demoThumbnailUrl}
         alt="thumbnail"

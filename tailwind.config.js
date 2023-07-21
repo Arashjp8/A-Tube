@@ -8,7 +8,7 @@ export default {
         primary: "#0F0F0F",
         secondary: "#FC1503",
         mainWhite: "#F8F8F8",
-        mainGray: "#757575",
+        mainGray: "#7F7F7F",
         buttonGray: "#30343D",
       },
       fontFamily: {
