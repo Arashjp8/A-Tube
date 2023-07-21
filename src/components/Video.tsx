@@ -1,16 +1,26 @@
-import { AiOutlineBell, AiOutlineDislike, AiOutlineLike } from "react-icons/ai";
+import {
+  AiFillDislike,
+  AiFillLike,
+  AiOutlineBell,
+  AiOutlineDislike,
+  AiOutlineLike,
+} from "react-icons/ai";
 import {
   demoChannelTitle,
   demoProfilePicture,
   demoThumbnailUrl,
   demoVideoTitle,
 } from "../utils/constans";
+import { useState } from "react";
 const Video = () => {
+  const [liked, setLiked] = useState(false);
+  const [disLiked, setDisLiked] = useState(false);
+
   const buttonStyle =
     "bg-buttonGray py-2 px-3 flex flex-row items-center gap-2 text-lg hover:opacity-70 opacity-100 transition duration-150 ease-in-out";
 
   return (
-    <div className="col-span-4 flex flex-col gap-3">
+    <div className="md:col-span-4 col-span-3 flex flex-col gap-3">
       <img
         src={demoThumbnailUrl}
         alt="player"
@@ -36,15 +46,25 @@ const Video = () => {
               Subscribe
             </button>
           </div>
-          <div className="flex flex-row gap-0">
+          <div className="flex flex-row gap-0 mr-3">
             <button
               className={`${buttonStyle} rounded-l-3xl border-r-2 border-primary`}
+              onClick={() => {
+                setDisLiked(false);
+                setLiked((prev) => !prev);
+              }}
             >
-              <AiOutlineLike />
+              {liked && !disLiked ? <AiFillLike /> : <AiOutlineLike />}
               Like
             </button>
-            <button className={`${buttonStyle} rounded-r-3xl`}>
-              <AiOutlineDislike />
+            <button
+              className={`${buttonStyle} rounded-r-3xl`}
+              onClick={() => {
+                setLiked(false);
+                setDisLiked((prev) => !prev);
+              }}
+            >
+              {disLiked && !liked ? <AiFillDislike /> : <AiOutlineDislike />}
               Dislike
             </button>
           </div>
