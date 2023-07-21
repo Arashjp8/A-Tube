@@ -5,9 +5,14 @@ import { useNavigate } from "react-router-dom";
 interface Props {
   searchedPhrase: string;
   setSearchedPhrase: (value: string) => void;
+  setSearchFeedPhrase: (value: string) => void;
 }
 
-const SearchBar = ({ searchedPhrase, setSearchedPhrase }: Props) => {
+const SearchBar = ({
+  searchedPhrase,
+  setSearchedPhrase,
+  setSearchFeedPhrase,
+}: Props) => {
   const userSearchInput = useRef<HTMLInputElement>(null);
   const navigate = useNavigate();
   const handleSubmit = (e: FormEvent) => {
@@ -15,6 +20,7 @@ const SearchBar = ({ searchedPhrase, setSearchedPhrase }: Props) => {
 
     if (userSearchInput.current && searchedPhrase.length !== 0) {
       navigate(`/search/${searchedPhrase}`);
+      setSearchFeedPhrase(searchedPhrase);
       setSearchedPhrase("");
     }
   };

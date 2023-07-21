@@ -7,9 +7,15 @@ interface Props {
   handleToggle: () => void;
   searchedPhrase: string;
   setSearchedPhrase: (value: string) => void;
+  setSearchFeedPhrase: (value: string) => void;
 }
 
-const Navbar = ({ handleToggle, searchedPhrase, setSearchedPhrase }: Props) => {
+const Navbar = ({
+  handleToggle,
+  searchedPhrase,
+  setSearchedPhrase,
+  setSearchFeedPhrase,
+}: Props) => {
   const buttonStyle =
     "hover:bg-buttonGray rounded-full px-2 text-center text-mainWhite text-[22px] h-[32px]";
 
@@ -26,6 +32,7 @@ const Navbar = ({ handleToggle, searchedPhrase, setSearchedPhrase }: Props) => {
       <SearchBar
         searchedPhrase={searchedPhrase}
         setSearchedPhrase={setSearchedPhrase}
+        setSearchFeedPhrase={setSearchFeedPhrase}
       />
       <div className="flex flex-row justify-between md:w-[40px] w-[140px] border-none">
         <button className={`${buttonStyle} md:hidden block`}>

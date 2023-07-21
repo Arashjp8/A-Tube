@@ -12,6 +12,7 @@ function App() {
   const handleToggle = () => setToggle((prev: boolean): boolean => !prev);
 
   const [searchedPhrase, setSearchedPhrase] = useState("");
+  const [searchFeedPhrase, setSearchFeedPhrase] = useState("");
 
   return (
     <BrowserRouter>
@@ -21,6 +22,7 @@ function App() {
             handleToggle={handleToggle}
             searchedPhrase={searchedPhrase}
             setSearchedPhrase={setSearchedPhrase}
+            setSearchFeedPhrase={setSearchFeedPhrase}
           />
         </div>
         <div className="relative">
@@ -31,7 +33,12 @@ function App() {
             <Route path="/channel/:id" element={<ChannelDetail />} />
             <Route
               path="/search/:searchTerm"
-              element={<SearchFeed toggle={toggle} />}
+              element={
+                <SearchFeed
+                  toggle={toggle}
+                  searchFeedPhrase={searchFeedPhrase}
+                />
+              }
             />
           </Routes>
         </div>
