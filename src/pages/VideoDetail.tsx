@@ -12,7 +12,7 @@ const VideoDetail = ({ toggle }: Props) => {
     <div
       className={`${
         toggle ? `opacity-50` : ``
-      } ${divStyle} relative left-[0px] lg:left-[250px] z-[0] w-full lg:w-[95%] grid grid-cols-6`}
+      } ${divStyle} relative left-[0px] lg:left-[150px] z-[0] w-full lg:w-[95%] grid grid-cols-6 gap-4`}
     >
       <Video />
       <VideoDetailSideBar />
