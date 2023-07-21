@@ -1,3 +1,4 @@
+import SearchFeedVideoCard from "../components/SearchFeedVideoCard";
 import { divStyle, noToggleDivStyle, toggleDivStyle } from "./Feed";
 
 interface Props {
@@ -10,7 +11,21 @@ const SearchFeed = ({ toggle }: Props) => {
       className={`${
         toggle ? `${toggleDivStyle}` : `${noToggleDivStyle}`
       } ${divStyle}`}
-    ></div>
+    >
+      <SearchFeedVideoCard />
+      <SearchFeedVideoCard />
+      <SearchFeedVideoCard />
+      <SearchFeedVideoCard />
+      <SearchFeedVideoCard />
+      <SearchFeedVideoCard />
+      <SearchFeedVideoCard />
+      <SearchFeedVideoCard />
+      <SearchFeedVideoCard />
+      <SearchFeedVideoCard />
+      <SearchFeedVideoCard />
+      <SearchFeedVideoCard />
+      <SearchFeedVideoCard />
+    </div>
   );
 };
 
