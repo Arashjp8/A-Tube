@@ -12,7 +12,11 @@ import {
   demoVideoTitle,
 } from "../utils/constans";
 import { useState } from "react";
+import { AiFillBell } from "react-icons/ai";
 const Video = () => {
+  const [subscribed, setSubscribed] = useState(false);
+  const [notified, setNotified] = useState(false);
+
   const [liked, setLiked] = useState(false);
   const [disLiked, setDisLiked] = useState(false);
 
@@ -41,10 +45,24 @@ const Video = () => {
               />
               <p className="text-lg">{demoChannelTitle}</p>
             </div>
-            <button className={`${buttonStyle} rounded-3xl`}>
-              <AiOutlineBell />
-              Subscribe
-            </button>
+            <div className="flex flex-row">
+              <button
+                className={`${
+                  subscribed ? "block" : "hidden"
+                } ${buttonStyle} rounded-l-3xl border-r-2 border-primary`}
+                onClick={() => setNotified((prev) => !prev)}
+              >
+                {notified ? <AiFillBell /> : <AiOutlineBell />}
+              </button>
+              <button
+                className={`${buttonStyle} ${
+                  subscribed ? "rounded-r-3xl" : "rounded-3xl"
+                }`}
+                onClick={() => setSubscribed((prev) => !prev)}
+              >
+                {subscribed ? "Subscribed" : "Subscribe"}
+              </button>
+            </div>
           </div>
           <div className="flex flex-row gap-0 mr-3">
             <button
