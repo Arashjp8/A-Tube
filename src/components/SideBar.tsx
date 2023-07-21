@@ -1,11 +1,29 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { categories } from "../utils/constans";
+import { Video } from "../interfaces/Video";
+import fetchFromAPI from "../utils/fetchFromAPI";
 
 interface Props {
   toggle: boolean;
+  selectedCategory: string;
+  setSelectedCategory: (value: string) => void;
+  setVideos: (value: Video[]) => void;
 }
 
-const SideBar = ({ toggle }: Props) => {
+const SideBar = ({
+  toggle,
+  selectedCategory,
+  setSelectedCategory,
+  setVideos,
+}: Props) => {
+  useEffect(() => {
+    setVideos([]);
+
+    fetchFromAPI(`search?part=snippet&q=${selectedCategory}`).then((data) =>
+      setVideos(data.items)
+    );
+  }, [selectedCategory]);
+
   return (
     <>
       <div
@@ -19,6 +37,7 @@ const SideBar = ({ toggle }: Props) => {
             className={`${
               index === categories.length - 1 ? "mb-10" : "mb-0.2"
             } w-[160px] h-[50px] hover:bg-buttonGray text-mainWhite font-light text-[16px] flex flex-row items-center rounded-xl  px-4 py-3 `}
+            onClick={() => setSelectedCategory(category.name)}
           >
             <div className="mr-2">{React.createElement(category.icon)}</div>
             <div>{category.name}</div>
