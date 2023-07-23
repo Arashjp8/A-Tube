@@ -5,6 +5,7 @@ interface Props {
   toggle: boolean;
   selectedCategory: string;
   videos: Video[] | undefined;
+  isLoading: boolean;
 }
 
 export const toggleDivStyle =
@@ -15,7 +16,18 @@ export const noToggleDivStyle =
 
 export const divStyle = "bg-primary text-mainWhite overflow-hidden";
 
-const Feed = ({ toggle, selectedCategory, videos }: Props) => {
+const Feed = ({ toggle, selectedCategory, videos, isLoading }: Props) => {
+  if (isLoading)
+    return (
+      <h2
+        className={`${
+          toggle ? `${toggleDivStyle}` : `${noToggleDivStyle}`
+        } ${divStyle} font-semibold text-3xl my-5 px-10 h-[100vh]`}
+      >
+        Loading...
+      </h2>
+    );
+
   return (
     <>
       <h2

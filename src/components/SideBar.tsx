@@ -1,7 +1,6 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { categories } from "../utils/constans";
 import { Video } from "../interfaces/Video";
-import fetchFromAPI from "../utils/fetchFromAPI";
 
 interface Props {
   toggle: boolean;
@@ -10,20 +9,7 @@ interface Props {
   setVideos: (value: Video[]) => void;
 }
 
-const SideBar = ({
-  toggle,
-  selectedCategory,
-  setSelectedCategory,
-  setVideos,
-}: Props) => {
-  useEffect(() => {
-    setVideos([]);
-
-    fetchFromAPI(`search?part=snippet&q=${selectedCategory}`).then((data) =>
-      setVideos(data.items)
-    );
-  }, [selectedCategory]);
-
+const SideBar = ({ toggle, setSelectedCategory }: Props) => {
   return (
     <>
       <div

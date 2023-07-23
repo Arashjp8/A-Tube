@@ -7,6 +7,7 @@ import Navbar from "./components/Navbar";
 import SideBar from "./components/SideBar";
 import { useEffect, useState } from "react";
 import { Video } from "./interfaces/Video";
+import fetchFromAPI from "./utils/fetchFromAPI";
 
 function App() {
   const [toggle, setToggle] = useState<boolean>(false);
@@ -17,6 +18,29 @@ function App() {
 
   const [selectedCategory, setSelectedCategory] = useState("New");
   const [videos, setVideos] = useState<Video[]>();
+  const [isLoading, setIsLoading] = useState(false);
+  // const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        setIsLoading(true);
+        // setError(null);
+
+        const data = await fetchFromAPI(
+          `search?part=snippet&q=${selectedCategory}`
+        );
+        setVideos(data.items);
+
+        setIsLoading(false);
+      } catch (error) {
+        // setError(error);
+        setIsLoading(false);
+      }
+    };
+
+    fetchData();
+  }, [selectedCategory]);
 
   useEffect(() => {
     console.log(videos);
@@ -48,6 +72,7 @@ function App() {
                   toggle={toggle}
                   selectedCategory={selectedCategory}
                   videos={videos}
+                  isLoading={isLoading}
                 />
               }
             />
