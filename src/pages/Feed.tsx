@@ -1,7 +1,10 @@
+import { Video } from "../interfaces/Video";
 import VideoCard from "../components/VideoCard";
 
 interface Props {
   toggle: boolean;
+  selectedCategory: string;
+  videos: Video[] | undefined;
 }
 
 export const toggleDivStyle =
@@ -12,40 +15,31 @@ export const noToggleDivStyle =
 
 export const divStyle = "bg-primary text-mainWhite overflow-hidden";
 
-const Feed = ({ toggle }: Props) => {
+const Feed = ({ toggle, selectedCategory, videos }: Props) => {
   return (
-    <div
-      className={` ${
-        toggle
-          ? `${toggleDivStyle} xl:grid-cols-4 lg:grid-cols-3 ssm:grid-cols-3`
-          : `${noToggleDivStyle} xl:grid-cols-5 lg:grid-cols-4 ssm:grid-cols-3`
-      } ${divStyle} grid ss:grid-cols-2 grid-cols-1 gap-4 px-10 xl:mr-20 mr-0`}
-    >
-      <VideoCard />
-      <VideoCard />
-      <VideoCard />
-      <VideoCard />
-      <VideoCard />
-      <VideoCard />
-      <VideoCard />
-      <VideoCard />
-      <VideoCard />
-      <VideoCard />
-      <VideoCard />
-      <VideoCard />
-      <VideoCard />
-      <VideoCard />
-      <VideoCard />
-      <VideoCard />
-      <VideoCard />
-      <VideoCard />
-      <VideoCard />
-      <VideoCard />
-      <VideoCard />
-      <VideoCard />
-      <VideoCard />
-      <VideoCard />
-    </div>
+    <>
+      <h2
+        className={`${
+          toggle ? `${toggleDivStyle}` : `${noToggleDivStyle}`
+        } ${divStyle} font-semibold text-3xl my-5 px-10`}
+      >
+        <span className="text-secondary">{selectedCategory}</span> Videos
+      </h2>
+      {/* videoGrid */}
+      {videos && (
+        <div
+          className={` ${
+            toggle
+              ? `${toggleDivStyle} xl:grid-cols-4 lg:grid-cols-3 ssm:grid-cols-3`
+              : `${noToggleDivStyle} xl:grid-cols-5 lg:grid-cols-4 ssm:grid-cols-3`
+          } ${divStyle} grid ss:grid-cols-2 grid-cols-1 gap-4 px-10 xl:mr-20 mr-0`}
+        >
+          {videos?.map((video, index) => (
+            <VideoCard key={index} video={video} />
+          ))}
+        </div>
+      )}
+    </>
   );
 };
 

@@ -1,12 +1,12 @@
 import { useNavigate } from "react-router-dom";
-import {
-  demoChannelTitle,
-  demoProfilePicture,
-  demoThumbnailUrl,
-  demoVideoTitle,
-} from "../utils/constans";
+import { demoProfilePicture } from "../utils/constans";
+import { Video } from "../interfaces/Video";
 
-const VideoCard = () => {
+interface Props {
+  video: Video;
+}
+
+const VideoCard = ({ video }: Props) => {
   const navigate = useNavigate();
 
   return (
@@ -15,9 +15,9 @@ const VideoCard = () => {
       onClick={() => navigate(`/video/1`)} // TODO: make it dynamic
     >
       <img
-        src={demoThumbnailUrl}
+        src={video.snippet.thumbnails.high.url}
         alt="thumbnail"
-        className="hover:rounded-none rounded-2xl h-[200px]"
+        className={`hover:rounded-none rounded-2xl h-[200px] w-[${video.snippet.thumbnails.high.width}px] h-[${video.snippet.thumbnails.high.height}px]`}
       />
       <div className="flex flex-row p-5">
         <img
@@ -26,9 +26,9 @@ const VideoCard = () => {
           className="w-[32px] h-[32px] rounded-full mr-3"
         />
         <span className="max-w-[315px] min-w-[200px]">
-          <h4 className="text-mainWhite ">{demoVideoTitle}</h4>
+          <h4 className="text-mainWhite ">{video.snippet.title}</h4>
           <p className="hover:text-mainWhite text-mainGray">
-            {demoChannelTitle}
+            {video.snippet.channelTitle}
           </p>
         </span>
       </div>

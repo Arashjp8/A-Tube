@@ -55,7 +55,8 @@ const SideBar = ({
             key={category.name}
             className={`${
               index === categories.length - 1 ? "mb-10" : "mb-0.2"
-            } w-[40px] h-[50px] hover:bg-buttonGray text-mainWhite font-light text-[16px] flex items-center justify-center rounded-xl px-4 py-2  `}
+            } w-[40px] h-[50px] hover:bg-buttonGray text-mainWhite font-light text-[16px] relative flex flex-row justify-center items-center rounded-xl px-4 py-2  `}
+            onClick={() => setSelectedCategory(category.name)}
           >
             <div>{React.createElement(category.icon)}</div>
           </button>

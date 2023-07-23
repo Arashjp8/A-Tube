@@ -41,7 +41,16 @@ function App() {
             setVideos={setVideos}
           />
           <Routes>
-            <Route path="/" element={<Feed toggle={toggle} />} />
+            <Route
+              path="/"
+              element={
+                <Feed
+                  toggle={toggle}
+                  selectedCategory={selectedCategory}
+                  videos={videos}
+                />
+              }
+            />
             <Route
               path="/video/:id"
               element={<VideoDetail toggle={toggle} />}
