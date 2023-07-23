@@ -11,13 +11,13 @@ const VideoCard = ({ video }: Props) => {
 
   return (
     <div
-      className={`cursor-pointer min-w-[240px] max-w-[400px] h-[340px] py-2 flex flex-col  justify-start`}
+      className={`cursor-pointer min-w-[240px] max-w-[400px] h-[360px] py-2 flex flex-col  justify-start mb-2`}
       onClick={() => navigate(`/video/1`)} // TODO: make it dynamic
     >
       <img
         src={video.snippet.thumbnails.high.url}
         alt="thumbnail"
-        className={`hover:rounded-none rounded-2xl h-[220px]`}
+        className={`hover:rounded-none rounded-2xl h-[250px]`}
       />
       <div className="flex flex-row p-5">
         <img
@@ -30,7 +30,7 @@ const VideoCard = ({ video }: Props) => {
             {video.snippet.title.slice(0, 40)}
             {video.snippet.title.length > 40 ? "..." : ""}
           </h4>
-          <p className="hover:text-mainWhite text-mainGray">
+          <p className="hover:text-mainWhite text-mainGray overflow-hidden whitespace-nowrap text-ellipsis">
             {video.snippet.channelTitle}
           </p>
         </span>

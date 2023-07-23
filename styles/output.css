@@ -647,8 +647,24 @@ video {
   margin-top: 1.25rem;
 }
 
+.mb-5{
+  margin-bottom: 1.25rem;
+}
+
+.mb-3{
+  margin-bottom: 0.75rem;
+}
+
+.mb-2{
+  margin-bottom: 0.5rem;
+}
+
 .block{
   display: block;
+}
+
+.inline-block{
+  display: inline-block;
 }
 
 .flex{
@@ -701,6 +717,42 @@ video {
 
 .h-\[94px\]{
   height: 94px;
+}
+
+.h-\[360px\]{
+  height: 360px;
+}
+
+.h-\[300px\]{
+  height: 300px;
+}
+
+.h-\[440px\]{
+  height: 440px;
+}
+
+.h-\[380px\]{
+  height: 380px;
+}
+
+.h-\[250px\]{
+  height: 250px;
+}
+
+.h-\[280px\]{
+  height: 280px;
+}
+
+.h-\[260px\]{
+  height: 260px;
+}
+
+.max-h-\[380px\]{
+  max-height: 380px;
+}
+
+.max-h-\[300px\]{
+  max-height: 300px;
 }
 
 .w-\[1200px\]{
@@ -853,6 +905,14 @@ video {
 
 .overflow-hidden{
   overflow: hidden;
+}
+
+.text-ellipsis{
+  text-overflow: ellipsis;
+}
+
+.whitespace-nowrap{
+  white-space: nowrap;
 }
 
 .rounded-2xl{
