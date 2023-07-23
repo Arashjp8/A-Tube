@@ -40,7 +40,7 @@ interface Statistics {
   commentCount: string;
 }
 
-export interface Video {
+export interface VideoProps {
   kind: string;
   id: {
     kind: string;

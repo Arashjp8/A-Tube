@@ -5,15 +5,16 @@ import {
   AiOutlineDislike,
   AiOutlineLike,
 } from "react-icons/ai";
-import {
-  demoChannelTitle,
-  demoProfilePicture,
-  demoThumbnailUrl,
-  demoVideoTitle,
-} from "../utils/constans";
+import { demoProfilePicture } from "../utils/constans";
 import { useState } from "react";
 import { AiFillBell } from "react-icons/ai";
-const Video = () => {
+import { VideoProps } from "../interfaces/Video";
+
+interface Props {
+  selectedVideo: VideoProps | undefined;
+}
+
+const Video = ({ selectedVideo }: Props) => {
   const [subscribed, setSubscribed] = useState(false);
   const [notified, setNotified] = useState(false);
 
@@ -26,14 +27,14 @@ const Video = () => {
   return (
     <div className="md:col-span-4 col-span-3 flex flex-col gap-3">
       <img
-        src={demoThumbnailUrl}
+        src={selectedVideo?.snippet.thumbnails.high.url}
         alt="player"
         className="w-[1200px] h-[660px]"
       />
 
       <div className="flex flex-col gap-2">
         <h4 className="text-[2rem] leading-[2.8rem] max-w-5xl">
-          {demoVideoTitle}
+          {selectedVideo?.snippet.title}
         </h4>
         <div className="flex flex-row items-center justify-between">
           <div className="flex flex-row gap-4 items-center">
@@ -43,7 +44,7 @@ const Video = () => {
                 alt="profile-picture"
                 className="w-[48px] h-[48px] rounded-full cursor-pointer"
               />
-              <p className="text-lg">{demoChannelTitle}</p>
+              <p className="text-lg">{selectedVideo?.snippet.channelTitle}</p>
             </div>
             <div className="flex flex-row">
               <button

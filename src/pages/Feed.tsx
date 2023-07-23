@@ -1,13 +1,13 @@
-import { Video } from "../interfaces/Video";
+import { VideoProps } from "../interfaces/Video";
 import VideoCard from "../components/VideoCard";
 
 interface Props {
   toggle: boolean;
   selectedCategory: string;
-  videos?: Video[];
+  videos?: VideoProps[];
   isLoading: boolean;
   error: string;
-  setSelectedVideo: (value: Video) => void;
+  setSelectedVideo: (value: VideoProps) => void;
 }
 
 export const toggleDivStyle =

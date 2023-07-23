@@ -1,10 +1,10 @@
 import { useNavigate } from "react-router-dom";
 import { demoProfilePicture } from "../utils/constans";
-import { Video } from "../interfaces/Video";
+import { VideoProps } from "../interfaces/Video";
 
 interface Props {
-  video: Video;
-  setSelectedVideo: (value: Video) => void;
+  video: VideoProps;
+  setSelectedVideo: (value: VideoProps) => void;
 }
 
 const VideoCard = ({ video, setSelectedVideo }: Props) => {

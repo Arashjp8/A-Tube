@@ -6,7 +6,7 @@ import SearchFeed from "./pages/SearchFeed";
 import Navbar from "./components/Navbar";
 import SideBar from "./components/SideBar";
 import { useEffect, useState } from "react";
-import { Video } from "./interfaces/Video";
+import { VideoProps } from "./interfaces/Video";
 import fetchFromAPI from "./utils/fetchFromAPI";
 
 function App() {
@@ -17,11 +17,11 @@ function App() {
   const [searchFeedPhrase, setSearchFeedPhrase] = useState("");
 
   const [selectedCategory, setSelectedCategory] = useState("New");
-  const [videos, setVideos] = useState<Video[]>();
+  const [videos, setVideos] = useState<VideoProps[]>();
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string>("");
 
-  const [selectedVideo, setSelectedVideo] = useState<Video>();
+  const [selectedVideo, setSelectedVideo] = useState<VideoProps | undefined>();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -82,7 +82,14 @@ function App() {
             />
             <Route
               path="/video/:id"
-              element={<VideoDetail toggle={toggle} />}
+              element={
+                <VideoDetail
+                  toggle={toggle}
+                  selectedVideo={selectedVideo}
+                  setSelectedVideo={setSelectedVideo}
+                  videos={videos}
+                />
+              }
             />
             <Route path="/channel/:id" element={<ChannelDetail />} />
             <Route
