@@ -6,7 +6,8 @@ interface Props {
   selectedCategory: string;
   videos?: Video[];
   isLoading: boolean;
-  error: any;
+  error: string;
+  setSelectedVideo: (value: Video) => void;
 }
 
 export const toggleDivStyle =
@@ -23,6 +24,7 @@ const Feed = ({
   videos,
   isLoading,
   error,
+  setSelectedVideo,
 }: Props) => {
   if (isLoading)
     return (
@@ -66,7 +68,11 @@ const Feed = ({
           } ${divStyle} grid ss:grid-cols-2 grid-cols-1 gap-4 px-10 xl:mr-20 mr-0`}
         >
           {videos?.map((video, index) => (
-            <VideoCard key={index} video={video} />
+            <VideoCard
+              key={index}
+              video={video}
+              setSelectedVideo={setSelectedVideo}
+            />
           ))}
         </div>
       )}

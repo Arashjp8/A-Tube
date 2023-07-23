@@ -21,6 +21,8 @@ function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string>("");
 
+  const [selectedVideo, setSelectedVideo] = useState<Video>();
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -74,6 +76,7 @@ function App() {
                   videos={videos}
                   isLoading={isLoading}
                   error={error}
+                  setSelectedVideo={setSelectedVideo}
                 />
               }
             />

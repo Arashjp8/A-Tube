@@ -42,7 +42,10 @@ interface Statistics {
 
 export interface Video {
   kind: string;
-  id: string;
+  id: {
+    kind: string;
+    videoId: string;
+  };
   snippet: Snippet;
   contentDetails: ContentDetails;
   statistics: Statistics;

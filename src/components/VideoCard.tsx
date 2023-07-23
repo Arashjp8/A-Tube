@@ -4,15 +4,19 @@ import { Video } from "../interfaces/Video";
 
 interface Props {
   video: Video;
+  setSelectedVideo: (value: Video) => void;
 }
 
-const VideoCard = ({ video }: Props) => {
+const VideoCard = ({ video, setSelectedVideo }: Props) => {
   const navigate = useNavigate();
 
   return (
     <div
       className={`cursor-pointer min-w-[240px] max-w-[400px] h-[360px] py-2 flex flex-col  justify-start mb-2`}
-      onClick={() => navigate(`/video/1`)} // TODO: make it dynamic
+      onClick={() => {
+        setSelectedVideo(video);
+        navigate(`/video/${video.id.videoId}`);
+      }}
     >
       <img
         src={video.snippet.thumbnails.high.url}
