@@ -4,8 +4,9 @@ import VideoCard from "../components/VideoCard";
 interface Props {
   toggle: boolean;
   selectedCategory: string;
-  videos: Video[] | undefined;
+  videos?: Video[];
   isLoading: boolean;
+  error: any;
 }
 
 export const toggleDivStyle =
@@ -16,7 +17,13 @@ export const noToggleDivStyle =
 
 export const divStyle = "bg-primary text-mainWhite overflow-hidden";
 
-const Feed = ({ toggle, selectedCategory, videos, isLoading }: Props) => {
+const Feed = ({
+  toggle,
+  selectedCategory,
+  videos,
+  isLoading,
+  error,
+}: Props) => {
   if (isLoading)
     return (
       <h2
@@ -27,6 +34,18 @@ const Feed = ({ toggle, selectedCategory, videos, isLoading }: Props) => {
         Loading...
       </h2>
     );
+
+  if (error) {
+    return (
+      <h2
+        className={`${
+          toggle ? `${toggleDivStyle}` : `${noToggleDivStyle}`
+        } ${divStyle} font-semibold text-3xl my-5 px-10 h-[100vh]`}
+      >
+        {error}
+      </h2>
+    );
+  }
 
   return (
     <>

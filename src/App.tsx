@@ -19,13 +19,12 @@ function App() {
   const [selectedCategory, setSelectedCategory] = useState("New");
   const [videos, setVideos] = useState<Video[]>();
   const [isLoading, setIsLoading] = useState(false);
-  // const [error, setError] = useState(null);
+  const [error, setError] = useState<string>("");
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         setIsLoading(true);
-        // setError(null);
 
         const data = await fetchFromAPI(
           `search?part=snippet&q=${selectedCategory}`
@@ -33,8 +32,8 @@ function App() {
         setVideos(data.items);
 
         setIsLoading(false);
-      } catch (error) {
-        // setError(error);
+      } catch (error: any) {
+        setError(error.response.statusText);
         setIsLoading(false);
       }
     };
@@ -44,6 +43,7 @@ function App() {
 
   useEffect(() => {
     console.log(videos);
+    console.log(error);
   }, [videos]);
 
   return (
@@ -73,6 +73,7 @@ function App() {
                   selectedCategory={selectedCategory}
                   videos={videos}
                   isLoading={isLoading}
+                  error={error}
                 />
               }
             />
