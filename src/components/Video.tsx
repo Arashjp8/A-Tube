@@ -29,14 +29,14 @@ const Video = ({ selectedVideo }: Props) => {
       <img
         src={selectedVideo?.snippet.thumbnails.high.url}
         alt="player"
-        className="w-[1200px] h-[660px]"
+        className="md:w-[98%] w-[95%] h[1rem] max-h-[720px]"
       />
 
       <div className="flex flex-col gap-2">
         <h4 className="text-[2rem] leading-[2.8rem] max-w-5xl">
           {selectedVideo?.snippet.title}
         </h4>
-        <div className="flex flex-row items-center justify-between">
+        <div className="flex sm:flex-row flex-col sm:items-center items-start gap-5 justify-between">
           <div className="flex flex-row gap-4 items-center">
             <div className="flex flex-row gap-3 items-center">
               <img
@@ -65,7 +65,7 @@ const Video = ({ selectedVideo }: Props) => {
               </button>
             </div>
           </div>
-          <div className="flex flex-row gap-0 mr-3">
+          <div className="flex flex-row gap-0 md:mr-5 mr-12">
             <button
               className={`${buttonStyle} rounded-l-3xl border-r-2 border-primary`}
               onClick={() => {

@@ -21,7 +21,7 @@ const VideoDetail = ({
     <div
       className={`${
         toggle ? `opacity-50` : ``
-      } ${divStyle} relative left-[0px] lg:left-[150px] z-[0] w-full lg:w-[95%] grid grid-cols-6 gap-4 mt-5`}
+      } ${divStyle} relative left-[0px] lg:left-[150px] z-[0] w-full lg:w-[95%] md:grid grid-cols-6 flex flex-col gap-4 mt-5 mx-2.5`}
     >
       <Video selectedVideo={selectedVideo} />
       <VideoDetailSideBar videos={videos} setSelectedVideo={setSelectedVideo} />
