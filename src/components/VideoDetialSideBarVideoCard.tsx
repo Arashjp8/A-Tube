@@ -24,9 +24,10 @@ const VideoDetialSideBarVideoCard = ({
         alt="thumbnail"
         className="hover:rounded-none rounded-xl w-[168px] h-[94px]"
       />
-      <span className="flex flex-col max-w-[330px] gap-2">
+      <span className="flex flex-col max-w-[200px] min-w-[150px] gap-2">
         <h4 className="text-mainWhite text-sm ">
-          {sideBarVideo.snippet.title}
+          {sideBarVideo.snippet.title.slice(0, 40)}
+          {sideBarVideo.snippet.title.length > 40 ? "..." : ""}
         </h4>
         <p className="hover:text-mainWhite text-mainGray text-sm">
           {sideBarVideo.snippet.channelTitle}
