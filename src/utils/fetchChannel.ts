@@ -17,7 +17,7 @@ export const BASE_URL = "https://youtube-v31.p.rapidapi.com";
 const options = {
   params,
   headers: {
-    "X-RapidAPI-Key": "29b62418f8mshdcb91040cb64a83p1855b2jsnedcf7c3704e5",
+    "X-RapidAPI-Key": import.meta.env.VITE_REACT_APP_API_KEY,
     "X-RapidAPI-Host": "youtube-v31.p.rapidapi.com",
   },
 };
