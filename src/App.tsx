@@ -98,6 +98,8 @@ function App() {
                 <SearchFeed
                   toggle={toggle}
                   searchFeedPhrase={searchFeedPhrase}
+                  videos={videos}
+                  setVideos={setVideos}
                 />
               }
             />

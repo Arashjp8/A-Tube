@@ -1,14 +1,29 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import SearchFeedVideoCard from "../components/SearchFeedVideoCard";
 import { divStyle, noToggleDivStyle, toggleDivStyle } from "./Feed";
+import { useEffect } from "react";
+import fetchFromAPI from "../utils/fetchFromAPI";
+import { VideoProps } from "../interfaces/Video";
 
 interface Props {
   toggle: boolean;
   searchFeedPhrase: string;
+  videos: VideoProps[] | undefined;
+  setVideos: (value: VideoProps[] | undefined) => void;
 }
 
-const SearchFeed = ({ toggle, searchFeedPhrase }: Props) => {
+const SearchFeed = ({ toggle, searchFeedPhrase, videos, setVideos }: Props) => {
   const navigate = useNavigate();
+
+  const { searchTerm } = useParams();
+
+  useEffect(() => {
+    fetchFromAPI(`search?part=snippet&q=${searchTerm}`).then((data) =>
+      setVideos(data.items)
+    );
+    console.log(searchTerm);
+  }, [searchTerm]);
+
   return (
     <>
       <h2
@@ -26,19 +41,9 @@ const SearchFeed = ({ toggle, searchFeedPhrase }: Props) => {
         } ${divStyle}`}
         onClick={() => navigate(`/video/1`)} // TODO: make it dynamic
       >
-        <SearchFeedVideoCard />
-        <SearchFeedVideoCard />
-        <SearchFeedVideoCard />
-        <SearchFeedVideoCard />
-        <SearchFeedVideoCard />
-        <SearchFeedVideoCard />
-        <SearchFeedVideoCard />
-        <SearchFeedVideoCard />
-        <SearchFeedVideoCard />
-        <SearchFeedVideoCard />
-        <SearchFeedVideoCard />
-        <SearchFeedVideoCard />
-        <SearchFeedVideoCard />
+        {videos?.map((video, index) => (
+          <SearchFeedVideoCard key={index} video={video} />
+        ))}
       </div>
     </>
   );

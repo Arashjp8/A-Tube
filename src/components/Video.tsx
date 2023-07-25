@@ -27,9 +27,9 @@ const Video = ({ selectedVideo }: Props) => {
   return (
     <div className="md:col-span-4 col-span-3 flex flex-col gap-3">
       <img
-        src={selectedVideo?.snippet.thumbnails.high.url}
+        src={selectedVideo?.snippet.thumbnails.medium.url}
         alt="player"
-        className="md:w-[98%] w-[95%] h[1rem] max-h-[720px]"
+        className="md:w-[98%] w-[95%] lg:w-[1200px] h[1rem] max-h-[720px]"
       />
 
       <div className="flex flex-col gap-2">
