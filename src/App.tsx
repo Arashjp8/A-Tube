@@ -100,6 +100,7 @@ function App() {
                   searchFeedPhrase={searchFeedPhrase}
                   videos={videos}
                   setVideos={setVideos}
+                  setSelectedVideo={setSelectedVideo}
                 />
               }
             />

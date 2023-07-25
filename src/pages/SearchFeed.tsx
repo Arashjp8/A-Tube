@@ -1,4 +1,4 @@
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import SearchFeedVideoCard from "../components/SearchFeedVideoCard";
 import { divStyle, noToggleDivStyle, toggleDivStyle } from "./Feed";
 import { useEffect } from "react";
@@ -10,11 +10,16 @@ interface Props {
   searchFeedPhrase: string;
   videos: VideoProps[] | undefined;
   setVideos: (value: VideoProps[] | undefined) => void;
+  setSelectedVideo: (value: VideoProps | undefined) => void;
 }
 
-const SearchFeed = ({ toggle, searchFeedPhrase, videos, setVideos }: Props) => {
-  const navigate = useNavigate();
-
+const SearchFeed = ({
+  toggle,
+  searchFeedPhrase,
+  videos,
+  setVideos,
+  setSelectedVideo,
+}: Props) => {
   const { searchTerm } = useParams();
 
   useEffect(() => {
@@ -39,10 +44,13 @@ const SearchFeed = ({ toggle, searchFeedPhrase, videos, setVideos }: Props) => {
         className={`${
           toggle ? `${toggleDivStyle}` : `${noToggleDivStyle}`
         } ${divStyle}`}
-        onClick={() => navigate(`/video/1`)} // TODO: make it dynamic
       >
         {videos?.map((video, index) => (
-          <SearchFeedVideoCard key={index} video={video} />
+          <SearchFeedVideoCard
+            key={index}
+            video={video}
+            setSelectedVideo={setSelectedVideo}
+          />
         ))}
       </div>
     </>
