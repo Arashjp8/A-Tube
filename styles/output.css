@@ -1273,6 +1273,21 @@ video {
     margin-right: 20%;
   }
 
+  .lg\:mx-\[19\%\]{
+    margin-left: 19%;
+    margin-right: 19%;
+  }
+
+  .lg\:mx-\[21\%\]{
+    margin-left: 21%;
+    margin-right: 21%;
+  }
+
+  .lg\:mx-\[19\.5\%\]{
+    margin-left: 19.5%;
+    margin-right: 19.5%;
+  }
+
   .lg\:block{
     display: block;
   }
