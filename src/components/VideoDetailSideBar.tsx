@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { VideoProps } from "../interfaces/Video";
 import VideoDetailSideBarVideoCard from "./VideoDetialSideBarVideoCard";
 
@@ -8,10 +9,15 @@ interface Props {
 
 const VideoDetailSideBar = ({ videos, setSelectedVideo }: Props) => {
   const randomStartingPoint = Math.floor(Math.random() * 39);
-  const sideBarVideos = videos?.slice(
-    randomStartingPoint,
-    randomStartingPoint + 10
+  const [sideBarVideos, setSideBarVideos] = useState<VideoProps[] | undefined>(
+    []
   );
+
+  useEffect(() => {
+    setSideBarVideos(
+      videos?.slice(randomStartingPoint, randomStartingPoint + 10)
+    );
+  }, []);
 
   return (
     <div className="col-span-2">
