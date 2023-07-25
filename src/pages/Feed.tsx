@@ -2,6 +2,7 @@ import { VideoProps } from "../interfaces/Video";
 import VideoCard from "../components/VideoCard";
 import { useEffect } from "react";
 import fetchFromAPI from "../utils/fetchFromAPI";
+import _shuffle from "lodash/shuffle";
 
 interface Props {
   toggle: boolean;
@@ -42,7 +43,9 @@ const Feed = ({
         const data = await fetchFromAPI(
           `search?part=snippet&q=${selectedCategory}`
         );
-        setVideos(data.items);
+        const shuffledVideos = _shuffle(data.items);
+
+        setVideos(shuffledVideos);
 
         setIsLoading(false);
       } catch (error: any) {
