@@ -51,6 +51,7 @@ function App() {
               element={
                 <Feed
                   toggle={toggle}
+                  setToggle={setToggle}
                   selectedCategory={selectedCategory}
                   videos={videos}
                   setVideos={setVideos}
@@ -79,6 +80,7 @@ function App() {
               element={
                 <SearchFeed
                   toggle={toggle}
+                  setToggle={setToggle}
                   searchFeedPhrase={searchFeedPhrase}
                   videos={videos}
                   setVideos={setVideos}

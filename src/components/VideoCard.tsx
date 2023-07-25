@@ -4,15 +4,17 @@ import { VideoProps } from "../interfaces/Video";
 interface Props {
   video: VideoProps;
   setSelectedVideo: (value: VideoProps) => void;
+  setToggle: (value: boolean) => void;
 }
 
-const VideoCard = ({ video, setSelectedVideo }: Props) => {
+const VideoCard = ({ video, setSelectedVideo, setToggle }: Props) => {
   const navigate = useNavigate();
 
   return (
     <div
       className={`cursor-pointer min-w-[240px] max-w-[400px] h-[360px] py-2 flex flex-col  justify-start mb-2`}
       onClick={() => {
+        setToggle(false);
         setSelectedVideo(video);
         navigate(`/video/${video.id.videoId}`);
       }}

@@ -6,6 +6,7 @@ import _shuffle from "lodash/shuffle";
 
 interface Props {
   toggle: boolean;
+  setToggle: (value: boolean) => void;
   selectedCategory: string;
   videos?: VideoProps[];
   setVideos: (value: VideoProps[]) => void;
@@ -26,6 +27,7 @@ export const divStyle = "bg-primary text-mainWhite overflow-hidden";
 
 const Feed = ({
   toggle,
+  setToggle,
   selectedCategory,
   videos,
   setVideos,
@@ -103,6 +105,7 @@ const Feed = ({
               key={index}
               video={video}
               setSelectedVideo={setSelectedVideo}
+              setToggle={setToggle}
             />
           ))}
         </div>

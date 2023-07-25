@@ -7,6 +7,7 @@ import { VideoProps } from "../interfaces/Video";
 
 interface Props {
   toggle: boolean;
+  setToggle: (value: boolean) => void;
   searchFeedPhrase: string;
   videos: VideoProps[] | undefined;
   setVideos: (value: VideoProps[] | undefined) => void;
@@ -15,6 +16,7 @@ interface Props {
 
 const SearchFeed = ({
   toggle,
+  setToggle,
   searchFeedPhrase,
   videos,
   setVideos,
@@ -85,6 +87,7 @@ const SearchFeed = ({
             key={index}
             video={video}
             setSelectedVideo={setSelectedVideo}
+            setToggle={setToggle}
           />
         ))}
       </div>

@@ -4,14 +4,16 @@ import { VideoProps } from "../interfaces/Video";
 interface Props {
   video: VideoProps;
   setSelectedVideo: (value: VideoProps | undefined) => void;
+  setToggle: (value: boolean) => void;
 }
 
-const SearchFeedVideoCard = ({ video, setSelectedVideo }: Props) => {
+const SearchFeedVideoCard = ({ video, setSelectedVideo, setToggle }: Props) => {
   const navigate = useNavigate();
 
   return (
     <div
       onClick={() => {
+        setToggle(false);
         setSelectedVideo(video);
         navigate(`/video/${video.id.videoId}`);
       }}
