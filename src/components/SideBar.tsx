@@ -1,12 +1,9 @@
 import React from "react";
 import { categories } from "../utils/constans";
-import { VideoProps } from "../interfaces/Video";
 
 interface Props {
   toggle: boolean;
-  selectedCategory: string;
   setSelectedCategory: (value: string) => void;
-  setVideos: (value: VideoProps[]) => void;
 }
 
 const SideBar = ({ toggle, setSelectedCategory }: Props) => {

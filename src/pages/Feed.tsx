@@ -1,13 +1,18 @@
 import { VideoProps } from "../interfaces/Video";
 import VideoCard from "../components/VideoCard";
+import { useEffect } from "react";
+import fetchFromAPI from "../utils/fetchFromAPI";
 
 interface Props {
   toggle: boolean;
   selectedCategory: string;
   videos?: VideoProps[];
+  setVideos: (value: VideoProps[]) => void;
   isLoading: boolean;
   error: string;
   setSelectedVideo: (value: VideoProps) => void;
+  setIsLoading: (value: boolean) => void;
+  setError: (value: string) => void;
 }
 
 export const toggleDivStyle =
@@ -22,10 +27,33 @@ const Feed = ({
   toggle,
   selectedCategory,
   videos,
+  setVideos,
   isLoading,
   error,
   setSelectedVideo,
+  setIsLoading,
+  setError,
 }: Props) => {
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        setIsLoading(true);
+
+        const data = await fetchFromAPI(
+          `search?part=snippet&q=${selectedCategory}`
+        );
+        setVideos(data.items);
+
+        setIsLoading(false);
+      } catch (error: any) {
+        setError(error.response.statusText);
+        setIsLoading(false);
+      }
+    };
+
+    fetchData();
+  }, [selectedCategory]);
+
   if (isLoading)
     return (
       <h2

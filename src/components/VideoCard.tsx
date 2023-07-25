@@ -23,12 +23,7 @@ const VideoCard = ({ video, setSelectedVideo }: Props) => {
         className={`hover:rounded-none rounded-2xl h-[250px]`}
       />
       <div className="flex flex-row p-5">
-        {/* <img
-          src={demoProfilePicture}
-          alt="profile-picture"
-          className="w-[32px] h-[32px] rounded-full mr-3"
-        /> */}
-        <span className="max-w-[315px] min-w-[200px]">
+        <span className="max-w-[315px] min-w-[200px] h-[72px]">
           <h4 className="text-mainWhite ">
             {video.snippet.title.slice(0, 60)}
             {video.snippet.title.length > 60 ? "..." : ""}

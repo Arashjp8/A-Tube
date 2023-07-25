@@ -8,6 +8,7 @@ interface Props {
   searchedPhrase: string;
   setSearchedPhrase: (value: string) => void;
   setSearchFeedPhrase: (value: string) => void;
+  setSelectedCategory: (value: string) => void;
 }
 
 const Navbar = ({
@@ -15,6 +16,7 @@ const Navbar = ({
   searchedPhrase,
   setSearchedPhrase,
   setSearchFeedPhrase,
+  setSelectedCategory,
 }: Props) => {
   const buttonStyle =
     "hover:bg-buttonGray rounded-full px-2 text-center text-mainWhite text-[22px] h-[32px]";
@@ -26,7 +28,14 @@ const Navbar = ({
           <AiOutlineMenu />
         </button>
         <Link to={"/"}>
-          <img src={logo} alt="logo" className="w-[36px] h-[36px]" />
+          <img
+            src={logo}
+            alt="logo"
+            className="w-[36px] h-[36px]"
+            onClick={() => {
+              setSelectedCategory("New");
+            }}
+          />
         </Link>
       </div>
       <SearchBar

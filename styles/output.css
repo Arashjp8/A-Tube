@@ -734,8 +734,20 @@ video {
   height: 220px;
 }
 
+.h-\[72px\]{
+  height: 72px;
+}
+
 .max-h-\[720px\]{
   max-height: 720px;
+}
+
+.max-h-\[72px\]{
+  max-height: 72px;
+}
+
+.min-h-\[250px\]{
+  min-height: 250px;
 }
 
 .w-\[140px\]{
@@ -1120,6 +1132,11 @@ video {
 .hover\:bg-buttonGray:hover{
   --tw-bg-opacity: 1;
   background-color: rgb(48 52 61 / var(--tw-bg-opacity));
+}
+
+.hover\:px-5:hover{
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
 }
 
 .hover\:text-mainWhite:hover{

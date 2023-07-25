@@ -7,7 +7,6 @@ import Navbar from "./components/Navbar";
 import SideBar from "./components/SideBar";
 import { useEffect, useState } from "react";
 import { VideoProps } from "./interfaces/Video";
-import fetchFromAPI from "./utils/fetchFromAPI";
 
 function App() {
   const [toggle, setToggle] = useState<boolean>(false);
@@ -24,26 +23,6 @@ function App() {
   const [selectedVideo, setSelectedVideo] = useState<VideoProps | undefined>();
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        setIsLoading(true);
-
-        const data = await fetchFromAPI(
-          `search?part=snippet&q=${selectedCategory}`
-        );
-        setVideos(data.items);
-
-        setIsLoading(false);
-      } catch (error: any) {
-        setError(error.response.statusText);
-        setIsLoading(false);
-      }
-    };
-
-    fetchData();
-  }, [selectedCategory]);
-
-  useEffect(() => {
     console.log(videos);
     console.log(error);
   }, [videos]);
@@ -57,15 +36,11 @@ function App() {
             searchedPhrase={searchedPhrase}
             setSearchedPhrase={setSearchedPhrase}
             setSearchFeedPhrase={setSearchFeedPhrase}
+            setSelectedCategory={setSelectedCategory}
           />
         </div>
         <div className="relative">
-          <SideBar
-            toggle={toggle}
-            selectedCategory={selectedCategory}
-            setSelectedCategory={setSelectedCategory}
-            setVideos={setVideos}
-          />
+          <SideBar toggle={toggle} setSelectedCategory={setSelectedCategory} />
           <Routes>
             <Route
               path="/"
@@ -74,9 +49,12 @@ function App() {
                   toggle={toggle}
                   selectedCategory={selectedCategory}
                   videos={videos}
+                  setVideos={setVideos}
                   isLoading={isLoading}
                   error={error}
                   setSelectedVideo={setSelectedVideo}
+                  setIsLoading={setIsLoading}
+                  setError={setError}
                 />
               }
             />
