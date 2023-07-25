@@ -20,13 +20,17 @@ const SearchFeedVideoCard = ({ video, setSelectedVideo }: Props) => {
       <img
         src={video.snippet.thumbnails.high.url}
         alt="thumbnail"
-        className="hover:rounded-none rounded-2xl h-[200px]"
+        className="hover:rounded-none rounded-2xl md:h-[260px] h-[220px]"
       />
       <div className="md:ml-20 ml-5 flex flex-row p-5">
         <span className="w-[200px] ssm:w-[350px]">
-          <h4 className="text-mainWhite ">{video.snippet.title}</h4>
+          <h4 className="text-mainWhite ">
+            {video.snippet.title.slice(0, 40)}{" "}
+            {video.snippet.title.length > 40 ? "..." : ""}
+          </h4>
           <p className="hover:text-mainWhite text-mainGray">
-            {video.snippet.channelTitle}
+            {video.snippet.channelTitle.slice(0, 40)}
+            {video.snippet.channelTitle.length > 40 ? "..." : ""}
           </p>
         </span>
       </div>

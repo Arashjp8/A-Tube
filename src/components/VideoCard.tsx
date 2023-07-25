@@ -1,9 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { demoProfilePicture } from "../utils/constans";
 import { VideoProps } from "../interfaces/Video";
-import { useEffect, useState } from "react";
-import fetchChannel from "../utils/fetchChannel";
-import { Channel } from "../interfaces/Channel";
 
 interface Props {
   video: VideoProps;
