@@ -1,5 +1,6 @@
 import React from "react";
 import { categories } from "../utils/constans";
+import { Link } from "react-router-dom";
 
 interface Props {
   toggle: boolean;
@@ -15,7 +16,8 @@ const SideBar = ({ toggle, setSelectedCategory }: Props) => {
         } w-[200px] px-3 border-r border-buttonGray`}
       >
         {categories.map((category, index) => (
-          <button
+          <Link
+            to="/"
             key={category.name}
             className={`${
               index === categories.length - 1 ? "mb-10" : "mb-0.2"
@@ -24,7 +26,7 @@ const SideBar = ({ toggle, setSelectedCategory }: Props) => {
           >
             <div className="mr-2">{React.createElement(category.icon)}</div>
             <div>{category.name}</div>
-          </button>
+          </Link>
         ))}
       </div>
 
@@ -34,7 +36,8 @@ const SideBar = ({ toggle, setSelectedCategory }: Props) => {
         } w-[5%] min-w-[95px] px-5 border-r border-buttonGray`}
       >
         {categories.map((category, index) => (
-          <button
+          <Link
+            to="/"
             key={category.name}
             className={`${
               index === categories.length - 1 ? "mb-10" : "mb-0.2"
@@ -42,7 +45,7 @@ const SideBar = ({ toggle, setSelectedCategory }: Props) => {
             onClick={() => setSelectedCategory(category.name)}
           >
             <div>{React.createElement(category.icon)}</div>
-          </button>
+          </Link>
         ))}
       </div>
     </>
