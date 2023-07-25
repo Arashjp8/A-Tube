@@ -5,7 +5,6 @@ import {
   AiOutlineDislike,
   AiOutlineLike,
 } from "react-icons/ai";
-import { demoProfilePicture } from "../utils/constans";
 import { useState } from "react";
 import { AiFillBell } from "react-icons/ai";
 import { VideoProps } from "../interfaces/Video";
@@ -38,14 +37,7 @@ const Video = ({ selectedVideo }: Props) => {
         </h4>
         <div className="flex sm:flex-row flex-col sm:items-center items-start gap-5 justify-between">
           <div className="flex flex-row gap-4 items-center">
-            <div className="flex flex-row gap-3 items-center">
-              <img
-                src={demoProfilePicture}
-                alt="profile-picture"
-                className="w-[48px] h-[48px] rounded-full cursor-pointer"
-              />
-              <p className="text-lg">{selectedVideo?.snippet.channelTitle}</p>
-            </div>
+            <p className="text-lg">{selectedVideo?.snippet.channelTitle}</p>
             <div className="flex flex-row">
               <button
                 className={`${

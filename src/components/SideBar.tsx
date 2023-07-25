@@ -4,10 +4,11 @@ import { Link } from "react-router-dom";
 
 interface Props {
   toggle: boolean;
+  selectedCategory: string;
   setSelectedCategory: (value: string) => void;
 }
 
-const SideBar = ({ toggle, setSelectedCategory }: Props) => {
+const SideBar = ({ toggle, selectedCategory, setSelectedCategory }: Props) => {
   return (
     <>
       <div
@@ -21,7 +22,11 @@ const SideBar = ({ toggle, setSelectedCategory }: Props) => {
             key={category.name}
             className={`${
               index === categories.length - 1 ? "mb-10" : "mb-0.2"
-            } w-[160px] h-[50px] hover:bg-buttonGray text-mainWhite font-light text-[16px] flex flex-row items-center rounded-xl  px-4 py-3 `}
+            } w-[160px] h-[50px]  font-light text-[16px] ${
+              selectedCategory === category.name
+                ? "text-secondary bg-secondary bg-opacity-10"
+                : "text-mainWhite hover:bg-buttonGray"
+            } flex flex-row items-center rounded-xl  px-4 py-3 `}
             onClick={() => setSelectedCategory(category.name)}
           >
             <div className="mr-2">{React.createElement(category.icon)}</div>
@@ -41,7 +46,11 @@ const SideBar = ({ toggle, setSelectedCategory }: Props) => {
             key={category.name}
             className={`${
               index === categories.length - 1 ? "mb-10" : "mb-0.2"
-            } w-[40px] h-[50px] hover:bg-buttonGray text-mainWhite font-light text-[16px] relative flex flex-row justify-center items-center rounded-xl px-4 py-2  `}
+            } w-[40px] h-[50px] hover:bg-buttonGray font-light text-[16px] ${
+              selectedCategory === category.name
+                ? "text-secondary bg-secondary bg-opacity-10"
+                : "text-mainWhite hover:bg-buttonGray"
+            } relative flex flex-row justify-center items-center rounded-xl px-4 py-2`}
             onClick={() => setSelectedCategory(category.name)}
           >
             <div>{React.createElement(category.icon)}</div>

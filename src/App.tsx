@@ -40,7 +40,11 @@ function App() {
           />
         </div>
         <div className="relative">
-          <SideBar toggle={toggle} setSelectedCategory={setSelectedCategory} />
+          <SideBar
+            toggle={toggle}
+            selectedCategory={selectedCategory}
+            setSelectedCategory={setSelectedCategory}
+          />
           <Routes>
             <Route
               path="/"
